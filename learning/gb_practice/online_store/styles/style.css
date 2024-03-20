@@ -1,0 +1,78 @@
+@font-face {
+  font-family: "Lato";
+  src: url("../fonts/Lato-Black.ttf");
+  src: url("../fonts/Lato-Bold.ttf");
+  src: url("../fonts/Lato-Italic.ttf");
+  src: url("../fonts/Lato-Light.ttf");
+  src: url("../fonts/Lato-LightItalic.ttf");
+  src: url("../fonts/Lato-Regular.ttf");
+}
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  font-family: "Lato", sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  scroll-behavior: smooth;
+  background: rgb(255, 255, 255);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a, button {
+  cursor: pointer;
+}
+
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+.header {
+  background: rgb(34, 34, 34);
+}
+
+.top-head {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 18px;
+  padding-bottom: 19px;
+}
+.top-head__left {
+  display: flex;
+  align-items: center;
+  gap: 41px;
+}
+.top-head__right {
+  display: flex;
+  align-items: center;
+  gap: 33px;
+}
+
+.banner {
+  background: rgb(241, 228, 230);
+}
+.banner__box {
+  display: flex;
+}
+.banner__title_text {
+  margin-left: 16px;
+  margin-top: 290px;
+  padding-left: 16px;
+  border-left: 12px solid #F16D7F;
+  font-weight: 900;
+  font-size: 48px;
+}
+.banner__title .lux {
+  font-weight: 700;
+  font-size: 32px;
+}
+.banner__title .fashion {
+  color: #F16D7F;
+}/*# sourceMappingURL=style.css.map */
