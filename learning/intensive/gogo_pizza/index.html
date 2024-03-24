@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GO GO Pizza - Лучшая пицца в городе</title>
   <link rel="stylesheet" href="./style/style.css">
-  <script src="./script/script.js" defer></script>
+  <script src="./script/script.js" type="module"></script>
 </head>
 
 <body>
@@ -42,57 +42,10 @@
               <path d="M10 15.5L15.1962 6.5H4.80385L10 15.5Z" fill="#2C2826" />
             </svg>
           </summary>
-          <ul class="filter__list">
-            <li class="filter__item">
-              <input class="filter__checkbox" type="checkbox" value="Твердый сыр" name="topping" id="cheese">
-              <label class="filter__label" for="cheese">Твердый сыр</label>
-            </li>
-            <li class="filter__item">
-              <input class="filter__checkbox" type="checkbox" value="Моцарелла" name="topping" id="mozzarella">
-              <label class="filter__label" for="mozzarella">Моцарелла</label>
-            </li>
-            <li class="filter__item">
-              <input class="filter__checkbox" type="checkbox" value="Сыр с плесенью" name="topping"
-                id="cheese_with_mold">
-              <label class="filter__label" for="cheese_with_mold">Сыр с плесенью</label>
-            </li>
-            <li class="filter__item">
-              <input class="filter__checkbox" type="checkbox" value="Пепперони" name="topping" id="pepperoni">
-              <label class="filter__label" for="pepperoni">Пепперони</label>
-            </li>
-            <li class="filter__item">
-              <input class="filter__checkbox" type="checkbox" value="Ветчина" name="topping" id="ham">
-              <label class="filter__label" for="ham">Ветчина</label>
-            </li>
-            <li class="filter__item">
-              <input class="filter__checkbox" type="checkbox" value="Курица" name="topping" id="chicken">
-              <label class="filter__label" for="chicken">Курица</label>
-            </li>
-            <li class="filter__item">
-              <input class="filter__checkbox" type="checkbox" value="Креветки" name="topping" id="shrimp">
-              <label class="filter__label" for="shrimp">Креветки</label>
-            </li>
-            <li class="filter__item">
-              <input class="filter__checkbox" type="checkbox" value="Помидор" name="topping" id="tomato">
-              <label class="filter__label" for="tomato">Помидор</label>
-            </li>
-            <li class="filter__item">
-              <input class="filter__checkbox" type="checkbox" value="Болгарский перец" name="topping" id="pepper">
-              <label class="filter__label" for="pepper">Болгарский перец</label>
-            </li>
-            <li class="filter__item">
-              <input class="filter__checkbox" type="checkbox" value="Ананас" name="topping" id="pineapple">
-              <label class="filter__label" for="pineapple">Ананас</label>
-            </li>
-            <li class="filter__item">
-              <input class="filter__checkbox" type="checkbox" value="Лук" name="topping" id="onion">
-              <label class="filter__label" for="onion">Лук</label>
-            </li>
-            <li class="filter__item">
-              <input class="filter__checkbox" type="checkbox" value="Грибы" name="topping" id="mushroom">
-              <label class="filter__label" for="mushroom">Грибы</label>
-            </li>
-          </ul>
+          <form class="filter__box">
+            <ul class="filter__list">
+            </ul>
+          </form>
         </details>
       </div>
     </section>
@@ -100,146 +53,6 @@
       <div class="container selection__container">
         <h2 class="selection__title">Пицца</h2>
         <ul class="selection__list">
-          <li class="selection__item">
-            <article class="card">
-              <img src="./img/pizza_1.png" alt="Пицца Маргарита" class="card__pic">
-              <div class="card__content">
-                <h3 class="card__title">Маргарита</h3>
-                <p class="card__text">
-                  <span class="card__price">480 ₽</span>
-                  <span>/</span>
-                  <span class="card__size">25 см</span>
-                </p>
-                <button class="card__btn">Выбрать</button>
-              </div>
-            </article>
-          </li>
-          <li class="selection__item">
-            <article class="card">
-              <img src="./img/pizza_2.png" alt="Пицца Пепперони" class="card__pic">
-              <div class="card__content">
-                <h3 class="card__title">Пепперони</h3>
-                <p class="card__text">
-                  <span class="card__price">550 ₽</span>
-                  <span>/</span>
-                  <span class="card__size">25 см</span>
-                </p>
-                <button class="card__btn">Выбрать</button>
-              </div>
-            </article>
-          </li>
-          <li class="selection__item">
-            <article class="card">
-              <img src="./img/pizza_3.png" alt="Пицца Морская" class="card__pic">
-              <div class="card__content">
-                <h3 class="card__title">Морская</h3>
-                <p class="card__text">
-                  <span class="card__price">590 ₽</span>
-                  <span>/</span>
-                  <span class="card__size">25 см</span>
-                </p>
-                <button class="card__btn">Выбрать</button>
-              </div>
-            </article>
-          </li>
-          <li class="selection__item">
-            <article class="card">
-              <img src="./img/pizza_4.png" alt="Пицца Четыре сыра" class="card__pic">
-              <div class="card__content">
-                <h3 class="card__title">Четыре сыра</h3>
-                <p class="card__text">
-                  <span class="card__price">520 ₽</span>
-                  <span>/</span>
-                  <span class="card__size">25 см</span>
-                </p>
-                <button class="card__btn">Выбрать</button>
-              </div>
-            </article>
-          </li>
-          <li class="selection__item">
-            <article class="card">
-              <img src="./img/pizza_5.png" alt="Пицца Капричиоза" class="card__pic">
-              <div class="card__content">
-                <h3 class="card__title">Капричиоза</h3>
-                <p class="card__text">
-                  <span class="card__price">530 ₽</span>
-                  <span>/</span>
-                  <span class="card__size">25 см</span>
-                </p>
-                <button class="card__btn">Выбрать</button>
-              </div>
-            </article>
-          </li>
-          <li class="selection__item">
-            <article class="card">
-              <img src="./img/pizza_6.png" alt="Пицца с грибами" class="card__pic">
-              <div class="card__content">
-                <h3 class="card__title">С грибами</h3>
-                <p class="card__text">
-                  <span class="card__price">490 ₽</span>
-                  <span>/</span>
-                  <span class="card__size">25 см</span>
-                </p>
-                <button class="card__btn">Выбрать</button>
-              </div>
-            </article>
-          </li>
-          <li class="selection__item">
-            <article class="card">
-              <img src="./img/pizza_7.png" alt="Пицца с ветчиной" class="card__pic">
-              <div class="card__content">
-                <h3 class="card__title">С ветчиной</h3>
-                <p class="card__text">
-                  <span class="card__price">500 ₽</span>
-                  <span>/</span>
-                  <span class="card__size">25 см</span>
-                </p>
-                <button class="card__btn">Выбрать</button>
-              </div>
-            </article>
-          </li>
-          <li class="selection__item">
-            <article class="card">
-              <img src="./img/pizza_8.png" alt="Пицца с курицей терияки" class="card__pic">
-              <div class="card__content">
-                <h3 class="card__title">С курицей террияки</h3>
-                <p class="card__text">
-                  <span class="card__price">560 ₽</span>
-                  <span>/</span>
-                  <span class="card__size">25 см</span>
-                </p>
-                <button class="card__btn">Выбрать</button>
-              </div>
-            </article>
-          </li>
-          <li class="selection__item">
-            <article class="card">
-              <img src="./img/pizza_9.png" alt="Пицца Гавайская" class="card__pic">
-              <div class="card__content">
-                <h3 class="card__title">Гавайская</h3>
-                <p class="card__text">
-                  <span class="card__price">530 ₽</span>
-                  <span>/</span>
-                  <span class="card__size">25 см</span>
-                </p>
-                <button class="card__btn">Выбрать</button>
-              </div>
-            </article>
-          </li>
-          <li class="selection__item">
-            <article class="card">
-              <img src="./img/pizza_10.png" alt="Пицца Неаполитана" class="card__pic">
-              <div class="card__content">
-                <h3 class="card__title">Неаполитана</h3>
-                <p class="card__text">
-                  <span class="card__price">550 ₽</span>
-                  <span>/</span>
-                  <span class="card__size">25 см</span>
-                </p>
-                <button class="card__btn">Выбрать</button>
-              </div>
-            </article>
-          </li>
         </ul>
       </div>
     </section>
@@ -259,6 +72,50 @@
       </ul>
     </div>
   </footer>
+
+  <div class="modal modal-pizza">
+    <div class="modal__main modal-pizza__main">
+      <img class="modal__pic" src="./img/pizza_5.png" alt="pizza">
+
+      <h2 class="modal-pizza__title">С грибами</h2>
+
+      <p class="modal-pizza__desc">Грибы, сыр, томатный соус, лук, болгарский перец</p>
+      <p class="modal-pizza__info">
+        <span class="modal-pizza__price">490 ₽</span>
+        <span class="modal-pizza__slash">/</span>
+        <span class="modal-pizza__size">25 см</span>
+      </p>
+
+      <form class="modal-pizza__form">
+        <fieldset class="modal-pizza__fieldset">
+          <input type="radio" class="modal-pizza__checkbox" value="fat" name="crust" id="fat">
+          <label for="fat" class="modal-pizza__label">Пышное тесто</label>
+
+          <input type="radio" class="modal-pizza__checkbox" value="thin" name="crust" id="thin" checked>
+          <label for="thin" class="modal-pizza__label">Тонкое тесто</label>
+        </fieldset>
+
+        <fieldset class="modal-pizza__fieldset">
+          <input type="radio" class="modal-pizza__checkbox" value="25" name="size" id="25">
+          <label for="25" class="modal-pizza__label">25 см</label>
+
+          <input type="radio" class="modal-pizza__checkbox" value="30" name="size" id="30" checked>
+          <label for="30" class="modal-pizza__label">30 см</label>
+
+          <input type="radio" class="modal-pizza__checkbox" value="35" name="size" id="35">
+          <label for="35" class="modal-pizza__label">35 см</label>
+        </fieldset>
+        <button class="modal-pizza__btn">В корзину</button>
+      </form>
+
+      <button class="modal__close">
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="10.8333" width="0.851136" height="15.3204" transform="rotate(45 10.8333 0)" fill="#C1AB91" />
+          <rect y="0.601807" width="0.851136" height="15.3204" transform="rotate(-45 0 0.601807)" fill="#C1AB91" />
+        </svg>
+      </button>
+    </div>
+  </div>
 </body>
 
 </html>
