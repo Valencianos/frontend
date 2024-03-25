@@ -1,5 +1,10 @@
 import { getData } from "./getData.js";
 
+const btnReset = document.createElement('button');
+btnReset.classList.add('selection__reset');
+btnReset.textContent = 'Сбросить фильтр';
+btnReset.type = 'reset';
+btnReset.setAttribute('form', 'toppings')
 const createCard = (data) => {
   const card = document.createElement('article');
   card.classList.add('card');
@@ -23,16 +28,24 @@ const createCard = (data) => {
 
 export const renderCards = async (toppings) => {
   const cards = await getData(`https://sprinkle-elite-mongoose.glitch.me/api/products${toppings ? `?toppings=${toppings}` : ''}`);
+  const selectionTitle = document.querySelector('.selection__title');
   const selectionList = document.querySelector('.selection__list');
   selectionList.textContent = '';
+
+  if (cards.length) {
+    selectionTitle.textContent = 'Пицца';
+    const itemList = cards.map((data) => {
+      const item = document.createElement('li');
+      item.classList.add('selection__item');
+      const card = createCard(data);
+      item.append(card);
+      return item;
+    })
+    selectionList.append(...itemList);
+  } else {
+    selectionTitle.textContent = 'Такой пиццы у нас нет :(';
+    selectionTitle.after(btnReset);
+  }
   
-  const itemList = cards.map((data) => {
-  const item = document.createElement('li');
-  item.classList.add('selection__item');
-  const card = createCard(data);
-  item.append(card);
-  return item;
-  })
-  selectionList.append(...itemList);
 
 }

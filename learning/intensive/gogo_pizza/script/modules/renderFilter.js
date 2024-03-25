@@ -1,4 +1,5 @@
 import { getData } from "./getData.js";
+import { renderCards } from "./renderCards.js";
 
 const createComponent = (data) => {
   const component = document.createElement('li');
@@ -33,17 +34,17 @@ export const renderFilter = async () => {
   btnReset.textContent = 'Сбросить';
   itemReset.append(btnReset);
   
-  const filterBox = document.querySelector('.filter__box');
-  filterBox.addEventListener('change', (e) => {
-    const formData = new FormData(filterBox);
+  const filterForm = document.querySelector('.filter__form');
+  filterForm.addEventListener('change', (e) => {
+    const formData = new FormData(filterForm);
     const checkedToppings = [];
     for (const [, value] of formData.entries()) {
       checkedToppings.push(value);
     }
     renderCards(checkedToppings);
 
-    if (checkedToppings.length) {
+    // if (checkedToppings.length) {
       
-    }
+    // }
   })
 }
