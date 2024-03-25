@@ -1,4 +1,5 @@
 import { getData } from "./getData.js";
+// import { modalController } from "./modalController.js";
 
 const btnReset = document.createElement('button');
 btnReset.classList.add('selection__reset');
@@ -42,6 +43,15 @@ export const renderCards = async (toppings) => {
       return item;
     })
     selectionList.append(...itemList);
+
+    // modalController({
+    //   modal: '.modal-pizza',
+    //   btnOpen: '.selection__button',
+    //   btnClose: 'modal__close',
+    //   cbOpen(btnOpen) {
+    //     console.log('btnOpen: ', btnOpen.dataset.id);
+    //   }
+    // })
   } else {
     selectionTitle.textContent = 'Такой пиццы у нас нет :(';
     selectionTitle.after(btnReset);

@@ -4,11 +4,11 @@ export const filterToggle = () => {
 
   filterTitle.addEventListener('click', () => {
     if (!filterList.classList.contains('filter__list_show')) {
-      filterTitle.classList.add('filter__title_active');
+      filterTitle.setAttribute([open]);
       filterList.classList.add('filter__list_show');
       filterList.style.maxHeight = filterList.scrollHeight + 'px';
     } else {
-      filterTitle.classList.remove('filter__title_active');
+      filterTitle.setAttribute([close]);
       filterList.style.maxHeight = null;
 
       setTimeout(() => {
