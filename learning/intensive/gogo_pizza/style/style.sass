@@ -24,19 +24,19 @@
       color: $orange
 
 .hero
-  position: relative
-  padding-top: 80px
-  padding-bottom: 212px
   background-image: linear-gradient(47deg, #eb8a14 0%, #ecd55a 100%)
   border-radius: 0 0 16px 16px
   margin-bottom: 43px
+  &__container
+    position: relative
+    padding-top: 80px
+    padding-bottom: 212px
   &__container::after
     content: ''
     position: absolute
     z-index: 3
     bottom: -43px
-    $rightPadding: 14px
-    right: calc( $rightPadding + 7px )
+    right: 21px
     background-image: url(../img/main_pic.png)
     background-size: contain
     background-repeat: no-repeat
@@ -46,7 +46,7 @@
     max-height: 337px
   &__content
     position: relative
-    min-width: 292px
+    max-width: 292px
     z-index: 4
   &__title
     font-weight: 900
@@ -76,12 +76,16 @@
     display: flex
     align-items: center
     gap: 4px
+    margin-bottom: 16px
+    cursor: pointer
     &_text
       font-weight: 600
       font-size: 18px
       color: $dark
+    &_colon
+      display: none
     &_arrow
-      transition: transform .3s ease //check
+      transition: transform .3s ease
     &_active .filter__title_arrow
       transform: scaleY(-1)
   &__list 
@@ -90,11 +94,7 @@
     gap: 8px
     max-height: 0
     overflow: hidden
-    transition: maxHeight .3s ease
-    &_show
-      display: flex
-
-
+    transition: max-height .3s ease
   &__label 
     display: block
     border-radius: 32px
@@ -116,9 +116,30 @@
       background: $white
       border-color: #b66200
       color: $orange
+    &:checked+.filter__label:hover
+      color: $white
+  &__reset
+    border-radius: 32px
+    padding: 8px 24px
+    background: $white
+    font-size: 14px
+    line-height: 1.4
+    color: $orange
+    font-weight: 600
+    border: 1px solid transparent
+    cursor: pointer
+    &:hover
+      color: $beige
+      background: $orange
+    &:focus-visible
+      background: $white
+      border-color: #b66200
+      color: $orange
 
 .selection
   padding: 24px 0
+  &__container
+    padding-bottom: 24px
   &__title 
     font-weight: 900
     font-size: 28px
@@ -134,23 +155,6 @@
     flex-direction: column
   &__card
     flex-grow: 1
-  &__reset-toppings
-    border-radius: 32px
-    padding: 8px 24px
-    background: $orange
-    font-weight: 600
-    font-size: 20px
-    line-height: 1.4
-    color: $white
-    border: 1px solid transparent
-    outline: none
-    &:focus-visible
-      background-color: $white
-      color: $orange
-      border-color: $orange
-    &:hover
-      background-color: $white
-      color: $orange
 
 .card 
   padding-top: 35px
@@ -189,7 +193,6 @@
     font-size: 14px
     color: $orange
 
-
 .footer 
   border-top: 1px solid $beige
   padding-top: 32px
@@ -204,11 +207,6 @@
     margin-bottom: 32px
   &__copyright 
     margin-bottom: 16px
-  &__developers 
-
-  &__developer 
-
-  &__link 
 
 @media (width >= 620px)
   .header
@@ -217,14 +215,14 @@
       width: 164px
 
   .hero
-    padding-top: 116px
-    padding-bottom: 90px
     border-radius: 0 0 32px 32px
     margin-bottom: 60px
+    &__container
+      padding-top: 116px
+      padding-bottom: 90px
     &__container::after
       bottom: -60px
-      $rightPadding: 40px
-      right: calc( $rightPadding + 10px )
+      right: 50px
     &__content
       max-width: 544px
     &__title
@@ -242,13 +240,17 @@
       font-size: 24px
     &__label 
       font-size: 20px
+    &__reset
+      font-size: 20px
 
   .selection
     padding: 64px 0
+    &__container
+      padding-bottom: 40px
     &__title 
       font-size: 44px
     &__list
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr))
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr))
       gap: 16px
 
   .card 
@@ -268,160 +270,55 @@
       font-size: 20px
 
   .footer 
-    border-top: 1px solid $beige
-    padding-top: 32px
-    padding-bottom: 24px
+    border-top: 2px solid $beige
+    padding-top: 40px
+    padding-bottom: 40px
     &__container 
-      font-size: 14px
-      color: $beige
-      text-align: center
+      font-size: 20px
     &__logo
-      width: 222px
-      margin: 0 auto
-      margin-bottom: 32px
-    &__copyright 
-      margin-bottom: 16px
-    &__developers 
-
-    &__developer 
-
-    &__link 
+      width: 400px
+      margin-bottom: 64px
 
 @media (width >= 880px)
   .hero
-    padding-top: 126px
-    padding-bottom: 80px
     margin-bottom: 82px
+    &__container
+      padding-top: 126px
+      padding-bottom: 80px
     &__container::after
       bottom: -82px
-      $rightPadding: 40px
-      right: calc( $rightPadding - 7px )
+      right: 33px
       max-width: 566px
       max-height: 499px
 
   .filter 
-    padding: 24px 0
-    &__title 
-      display: flex
-      align-items: center
-      gap: 4px
+    &__title
       &_text
-        font-weight: 600
-        font-size: 18px
-        color: $dark
+        font-size: 24px
+      &_colon
+        display: inline
       &_arrow
         display: none
-    &__list 
-      display: flex
-      flex-wrap: wrap
-      gap: 8px
-    &__label 
-      display: block
-      border-radius: 32px
-      padding: 8px 24px
-      background: $white
-      font-size: 14px
-      color: $beige
-      border: 1px solid transparent
-    &__checkbox 
-      position: absolute
-      appearance: none
-      &:checked+.filter__label
-        background: $orange
-        color: $light
-      &:focus-visible+.filter__label
-        background: $white
-        border-color: #b66200
-        color: $orange
-
-  .footer 
-    border-top: 1px solid $beige
-    padding-top: 32px
-    padding-bottom: 24px
-    &__container 
-      font-size: 14px
-      color: $beige
-      text-align: center
-    &__logo
-      width: 222px
-      margin: 0 auto
-      margin-bottom: 32px
-    &__copyright 
-      margin-bottom: 16px
+        visibility: hidden
 
 @media (width >= 1120px)
   .hero
-    padding-top: 140px
-    padding-bottom: 100px
     margin-bottom: 87px
+    &__container
+      padding-top: 140px
+      padding-bottom: 100px
     &__container::after
       bottom: -87px
-      $rightPadding: 70px
-      right: calc( $rightPadding + 30px )
+      right: 100px
       max-width: 670px
       max-height: 591px
     &__content
-      max-width: 594px
+      max-width: 620px
     &__title
-      font-size: 80px
+      font-size: 80px 
     &__note
       margin-bottom: 64px
-
-  .filter 
-    padding: 24px 0
-    &__title 
-      display: flex
-      align-items: center
-      gap: 4px
-      &_text
-        font-weight: 600
-        font-size: 18px
-        color: $dark
-      &_arrow
-        transform: .3s ease //check
-      &_active .filter__title_arrow
-        transform: scaleY(-1)
-    &__list 
-      display: flex
-      flex-wrap: wrap
-      gap: 8px
-
-    &__item 
-
-    &__label 
-      display: block
-      border-radius: 32px
-      padding: 8px 24px
-      background: $white
-      font-size: 14px
-      color: $beige
-      border: 1px solid transparent
-    &__checkbox 
-      position: absolute
-      appearance: none
-      &:checked+.filter__label
-        background: $orange
-        color: $light
-      &:focus-visible+.filter__label
-        background: $white
-        border-color: #b66200
-        color: $orange
 
   .selection
     &__list
       gap: 20px
-
-  .footer
-    border-top: 1px solid $beige
-    padding-top: 32px
-    padding-bottom: 24px
-    &__container 
-      font-size: 14px
-      color: $beige
-      text-align: center
-    &__logo
-      width: 222px
-      margin: 0 auto
-      margin-bottom: 32px
-    &__copyright 
-      margin-bottom: 16px

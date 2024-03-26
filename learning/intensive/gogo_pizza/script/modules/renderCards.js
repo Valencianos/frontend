@@ -1,14 +1,9 @@
 import { getData } from "./getData.js";
 // import { modalController } from "./modalController.js";
 
-const btnReset = document.createElement('button');
-btnReset.classList.add('selection__reset');
-btnReset.textContent = 'Сбросить фильтр';
-btnReset.type = 'reset';
-btnReset.setAttribute('form', 'toppings')
 const createCard = (data) => {
   const card = document.createElement('article');
-  card.classList.add('card');
+  card.classList.add('card', 'selection__card');
   card.innerHTML = `
     <picture>
       <source srcset="${data.images[1]}" type="image/webp">
@@ -52,10 +47,9 @@ export const renderCards = async (toppings) => {
     //     console.log('btnOpen: ', btnOpen.dataset.id);
     //   }
     // })
-  } else {
-    selectionTitle.textContent = 'Такой пиццы у нас нет :(';
-    selectionTitle.after(btnReset);
+  // } else {
+  //   selectionTitle.textContent = 'Такой пиццы у нас нет :(';
+  //   selectionTitle.after(btnReset);
   }
   
-
 }

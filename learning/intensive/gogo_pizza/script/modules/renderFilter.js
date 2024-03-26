@@ -29,9 +29,10 @@ export const renderFilter = async () => {
 
   const itemReset = document.createElement('li');
   itemReset.classList.add('filter__item');
-  const btnReset = document.createElement('li');
+  const btnReset = document.createElement('button');
   btnReset.classList.add('filter__reset');
   btnReset.textContent = 'Сбросить';
+  btnReset.type = 'reset';
   itemReset.append(btnReset);
   
   const filterForm = document.querySelector('.filter__form');
@@ -43,8 +44,14 @@ export const renderFilter = async () => {
     }
     renderCards(checkedToppings);
 
-    // if (checkedToppings.length) {
-      
-    // }
+    if (checkedToppings.length) {
+      filterList.append(itemReset);
+    } else {
+      itemReset.remove();
+    }
+  });
+  btnReset.addEventListener('click', () => {
+    itemReset.remove();
+    filterForm.reset();
   })
 }

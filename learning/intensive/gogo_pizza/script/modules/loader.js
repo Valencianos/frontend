@@ -2,7 +2,7 @@ const loader = document.createElement('div');
 loader.classList.add('loader');
 
 const loaderSpinner = document.createElement('div');
-loaderSpinner.classList.add('loaderSpinner');
+loaderSpinner.classList.add('loader__spinner');
 
 loader.append(loaderSpinner);
 

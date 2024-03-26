@@ -67,10 +67,8 @@ iframe
   transform: scale(0)
 
 .container
-  $offset: 14px
-  $widthSite: calc(1300px + $offset * 2)
-  max-width: $widthSite
-  padding: 0 $offset
+  max-width: calc(1300px + 14px * 2)
+  padding: 0 14px
   margin: 0 auto
 
 .svg-sprire
@@ -78,10 +76,12 @@ iframe
 
 @media (width >= 620px)
   .container
-    $offset: 40px
+    max-width: calc(1300px + 40px * 2)
+    padding: 0 40px
 
 @media (width >= 880px)
 
 @media (width >= 1120px)
   .container
-    $offset: 70px
+    max-width: calc(1300px + 70px * 2)
+    padding: 0 70px
