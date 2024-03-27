@@ -328,7 +328,7 @@ iframe {
 }
 .modal {
   position: fixed;
-  z-index: 7;
+  z-index: 6;
   inset: 0;
   background: rgba(44, 40, 38, 0.89);
   cursor: pointer;
@@ -345,7 +345,6 @@ iframe {
   background: #fff;
   border-radius: 32px;
   margin: auto;
-  padding: 16px;
 }
 .modal-pizza__main {
   max-width: 292px;
@@ -617,6 +616,7 @@ iframe {
   color: #ff8a00;
   font-weight: 600;
   border: 1px solid transparent;
+  outline: none;
   cursor: pointer;
 }
 .filter__reset:hover {
@@ -696,6 +696,25 @@ iframe {
   padding: 8px 24px;
   background: #fbf3e8;
   font-size: 14px;
+  color: #ff8a00;
+}
+.card__reset-toppings {
+  border-radius: 32px;
+  padding: 8px 24px;
+  background: #ff8a00;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.4;
+  color: #fff;
+  outline: none;
+}
+.card__reset-toppings:focus-visible {
+  background-color: #fff;
+  color: #ff8a00;
+  border-color: #ff8a00;
+}
+.card__reset-toppings:hover {
+  background-color: #fff;
   color: #ff8a00;
 }
 
@@ -833,6 +852,9 @@ iframe {
   .filter__title_arrow {
     display: none;
     visibility: hidden;
+  }
+  .card__reset-toppings {
+    font-size: 20px;
   }
 }
 @media (width >= 1120px) {

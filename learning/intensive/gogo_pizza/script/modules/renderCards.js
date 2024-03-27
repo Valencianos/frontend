@@ -1,5 +1,14 @@
 import { getData } from "./getData.js";
-// import { modalController } from "./modalController.js";
+import { modalController } from "./modalController.js";
+
+const buttonReset = document.createElement('button');
+buttonReset.classList.add('card__reset-toppings');
+buttonReset.textContent = 'Сбросить фильтр';
+buttonReset.type = 'reset';
+buttonReset.setAttribute('form', 'toppings');
+buttonReset.addEventListener('click', () => {
+  document.querySelector('.filter__reset').remove();
+})
 
 const createCard = (data) => {
   const card = document.createElement('article');
@@ -24,12 +33,14 @@ const createCard = (data) => {
 
 export const renderCards = async (toppings) => {
   const cards = await getData(`https://sprinkle-elite-mongoose.glitch.me/api/products${toppings ? `?toppings=${toppings}` : ''}`);
+  
   const selectionTitle = document.querySelector('.selection__title');
   const selectionList = document.querySelector('.selection__list');
   selectionList.textContent = '';
 
   if (cards.length) {
     selectionTitle.textContent = 'Пицца';
+    buttonReset.remove();
     const itemList = cards.map((data) => {
       const item = document.createElement('li');
       item.classList.add('selection__item');
@@ -39,17 +50,21 @@ export const renderCards = async (toppings) => {
     })
     selectionList.append(...itemList);
 
-    // modalController({
-    //   modal: '.modal-pizza',
-    //   btnOpen: '.selection__button',
-    //   btnClose: 'modal__close',
-    //   cbOpen(btnOpen) {
-    //     console.log('btnOpen: ', btnOpen.dataset.id);
-    //   }
-    // })
-  // } else {
-  //   selectionTitle.textContent = 'Такой пиццы у нас нет :(';
-  //   selectionTitle.after(btnReset);
-  }
-  
-}
+    modalController({
+      modal: '.modal-pizza',
+      btnOpen: '.card__btn',
+      btnClose: 'modal__close',
+      cbOpen(btnOpen) {
+        console.log('btnOpen: ', btnOpen.dataset.id);
+      }
+    })
+
+  } else {
+    selectionTitle.textContent = 'Такой пиццы у нас нет :(';
+    selectionTitle.after(buttonReset);
+  } 
+};
+buttonReset.addEventListener('click', () =>{
+  renderCards();
+
+});

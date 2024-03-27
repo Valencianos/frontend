@@ -53,5 +53,6 @@ export const renderFilter = async () => {
   btnReset.addEventListener('click', () => {
     itemReset.remove();
     filterForm.reset();
+    renderCards();
   })
 }
