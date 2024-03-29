@@ -1,4 +1,5 @@
 import { getData } from "./getData.js";
+import { capitalize } from "./helpers.js";
 import { renderCards } from "./renderCards.js";
 
 const createComponent = (data) => {
@@ -12,7 +13,7 @@ const createComponent = (data) => {
 }
 
 export const renderFilter = async () => {
-  const { en: enFilter, ru: ruFilter } = await getData('https://sprinkle-elite-mongoose.glitch.me/api/toppings');
+  const { en: enFilter, ru: ruFilter } = await getData('https://go-go-pizza-api-sz9g.onrender.com/api/toppings');
   const filterList = document.querySelector('.filter__list');
   filterList.textContent = '';
 
@@ -21,7 +22,7 @@ export const renderFilter = async () => {
     item.classList.add('filter__item');
     item.innerHTML = `
     <input class="filter__checkbox" type="checkbox" value="${enName}" name="topping" id="${enName}">
-    <label class="filter__label" for="${enName}">${ruFilter[i].charAt(0).toUpperCase()}${ruFilter[i].slice(1)}</label>
+    <label class="filter__label" for="${enName}">${capitalize(ruFilter[i])}</label>
     `
     return item;
   })

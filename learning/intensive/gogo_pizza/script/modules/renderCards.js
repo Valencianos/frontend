@@ -1,5 +1,7 @@
 import { getData } from "./getData.js";
+import { capitalize } from "./helpers.js";
 import { modalController } from "./modalController.js";
+import { renderModalPizza } from "./renderModalPizza.js";
 
 const buttonReset = document.createElement('button');
 buttonReset.classList.add('card__reset-toppings');
@@ -19,7 +21,7 @@ const createCard = (data) => {
       <img src="${data.images[0]}" alt="${data.name.ru}" class="card__pic">
     </picture>
     <div class="card__content">
-      <h3 class="card__title">${data.name.ru.charAt(0).toUpperCase()}${data.name.ru.slice(1)}</h3>
+      <h3 class="card__title">${capitalize(data.name.ru)}</h3>
       <p class="card__text">
         <span class="card__price">${data.price['25cm']} ₽</span>
         <span>/</span>
@@ -32,7 +34,7 @@ const createCard = (data) => {
 }
 
 export const renderCards = async (toppings) => {
-  const cards = await getData(`https://sprinkle-elite-mongoose.glitch.me/api/products${toppings ? `?toppings=${toppings}` : ''}`);
+  const cards = await getData(`https://go-go-pizza-api-sz9g.onrender.com/api/products/${toppings ? `?toppings=${toppings}` : ''}`);
   
   const selectionTitle = document.querySelector('.selection__title');
   const selectionList = document.querySelector('.selection__list');
@@ -53,9 +55,10 @@ export const renderCards = async (toppings) => {
     modalController({
       modal: '.modal-pizza',
       btnOpen: '.card__btn',
-      btnClose: 'modal__close',
-      cbOpen(btnOpen) {
-        console.log('btnOpen: ', btnOpen.dataset.id);
+      btnClose: '.modal__close',
+      async cbOpen(btnOpen) {
+        const cards = await getData(`https://go-go-pizza-api-sz9g.onrender.com/api/products/${btnOpen.dataset.id}`);
+        renderModalPizza(cards);
       }
     })
 
