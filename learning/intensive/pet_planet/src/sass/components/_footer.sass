@@ -1,0 +1,41 @@
+@import '../_vars'
+
+.footer
+  padding-top: 80px
+  padding-bottom: 32px
+  background-color: $green
+  background-image: url('../img/paw.svg')
+  background-repeat: no-repeat
+  color: $light
+  background-position: 60% 50px
+
+  &__container
+    display: grid
+    grid-template-areas: "logo contacts" "info contacts"
+  &__pic
+    grid-area: logo
+  &__info
+    grid-area: info
+  &__copyright
+    font-size: 16px
+    margin-bottom: 16px
+  &__text
+    margin-bottom: 3px
+    font-size: 16px
+  &__item
+    margin-bottom: 3px
+    font-size: 16px
+    &:last-child
+      margin-bottom: 0
+  &__contacts
+    grid-area: contacts
+    justify-self: end
+    font-style: normal
+  &__mail
+    display: inline-block
+    margin-bottom: 16px
+  &__media
+    display: flex
+    align-items: center
+    gap: 12px
+
