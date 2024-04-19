@@ -1,4 +1,6 @@
+@use '../media' as *
 @import '../_vars'
+
 
 .footer
   padding-top: 80px
@@ -8,34 +10,94 @@
   background-repeat: no-repeat
   color: $light
   background-position: 60% 50px
+  @include laptop
+
+  @include tablet
+
+  @include mobile
 
   &__container
     display: grid
     grid-template-areas: "logo contacts" "info contacts"
+    @include laptop
+
+    @include tablet
+
+    @include mobile
+
   &__pic
     grid-area: logo
+    margin-bottom: 50px
+    @include laptop
+
+    @include tablet
+
+    @include mobile
+
   &__info
     grid-area: info
+    @include laptop
+
+    @include tablet
+
+    @include mobile
+
   &__copyright
     font-size: 16px
     margin-bottom: 16px
+    @include laptop
+
+    @include tablet
+
+    @include mobile
+
   &__text
     margin-bottom: 3px
     font-size: 16px
+    @include laptop
+
+    @include tablet
+
+    @include mobile
+
   &__item
     margin-bottom: 3px
     font-size: 16px
+    @include laptop
+
+    @include tablet
+
+    @include mobile
+
     &:last-child
       margin-bottom: 0
   &__contacts
     grid-area: contacts
     justify-self: end
     font-style: normal
+    @include laptop
+
+    @include tablet
+
+    @include mobile
+
   &__mail
     display: inline-block
     margin-bottom: 16px
+    @include laptop
+
+    @include tablet
+
+    @include mobile
+
   &__media
     display: flex
     align-items: center
     gap: 12px
+    @include laptop
+
+    @include tablet
+
+    @include mobile
+
 

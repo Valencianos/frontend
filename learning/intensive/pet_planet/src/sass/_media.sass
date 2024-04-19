@@ -1,0 +1,16 @@
+$laptop: 1120px
+$tablet: 920px
+$mobile: 520px
+
+
+@mixin laptop
+  @media (max-width: $laptop)
+    @content
+
+@mixin tablet
+  @media (max-width: $tablet)
+    @content
+
+@mixin mobile
+  @media (max-width: $mobile)
+    @content

@@ -1,5 +1,6 @@
 @use './_fonts' as *
 @use './_vars' as *
+@use './_media' as *
 
 html
   position: relative
@@ -72,3 +73,10 @@ iframe
   max-width: 1404px
   padding: 0 52px
   margin: 0 auto
+
+  @include laptop
+
+  @include tablet
+    padding: 0 46px
+  @include mobile
+    padding: 0 14px

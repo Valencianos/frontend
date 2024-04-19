@@ -1,11 +1,25 @@
+@use '../media' as *
 @import '../_vars'
+
 
 .subscribe
   padding: 120px 0
+  @include laptop
+
+  @include tablet
+
+  @include mobile
+
   &__form
     display: flex
     flex-direction: column
     align-items: center
+    @include laptop
+
+    @include tablet
+
+    @include mobile
+
   &__title
     min-width: 1000px
     margin-bottom: 50px
@@ -13,12 +27,24 @@
     font-size: 52px
     line-height: 1.3
     text-align: center
+    @include laptop
+
+    @include tablet
+
+    @include mobile
+
   &__fieldset
     padding: 0
     position: relative
     max-width: 732px
     width: 100%
     border: none
+    @include laptop
+
+    @include tablet
+
+    @include mobile
+
   &__input
     border: 2px solid $purple
     border-radius: 40px
@@ -28,6 +54,12 @@
     font-weight: 400
     font-size: 24px
     line-height: 1.4
+    @include laptop
+
+    @include tablet
+
+    @include mobile
+
     &::placeholder
       opacity: 0.4
       color: $green
@@ -46,9 +78,20 @@
     display: flex
     align-items: center
     gap: 4px
+    @include laptop
+
+    @include tablet
+
+    @include mobile
+
     &::after
       content: ''
       display: block
       width: 16px
       height: 16px
       background-image: url('../img/arrow.svg')
+      @include laptop
+
+      @include tablet
+
+      @include mobile
