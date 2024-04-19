@@ -1,7 +1,6 @@
 @use '../media' as *
 @import '../_vars'
 
-
 .footer
   padding-top: 80px
   padding-bottom: 32px
@@ -9,21 +8,26 @@
   background-image: url('../img/paw.svg')
   background-repeat: no-repeat
   color: $light
-  background-position: 60% 50px
+  background-position: left 41vw bottom -75px
+  background-size: 375px
   @include laptop
-
+    background-size: 311px
+    padding-top: 50px
   @include tablet
-
+    background-position: right 46px bottom -45px
+    background-size: 215px
+    padding-top: 40px
   @include mobile
+    background-position: right -30px bottom -30px
+    background-size: 144px
+    padding-top: 30px
+    padding-bottom: 24px
 
   &__container
     display: grid
     grid-template-areas: "logo contacts" "info contacts"
-    @include laptop
-
-    @include tablet
-
     @include mobile
+      grid-template-areas: 'logo' 'contacts' 'info'
 
   &__pic
     grid-area: logo
@@ -31,43 +35,25 @@
     @include laptop
 
     @include tablet
-
+      width: 200px
+      margin-bottom: 82px
     @include mobile
+      margin-bottom: 32px
 
   &__info
     grid-area: info
-    @include laptop
-
-    @include tablet
-
+    font-size: 16px
     @include mobile
+      font-size: 12px
 
   &__copyright
-    font-size: 16px
     margin-bottom: 16px
-    @include laptop
-
-    @include tablet
-
-    @include mobile
 
   &__text
     margin-bottom: 3px
-    font-size: 16px
-    @include laptop
-
-    @include tablet
-
-    @include mobile
 
   &__item
     margin-bottom: 3px
-    font-size: 16px
-    @include laptop
-
-    @include tablet
-
-    @include mobile
 
     &:last-child
       margin-bottom: 0
@@ -75,29 +61,16 @@
     grid-area: contacts
     justify-self: end
     font-style: normal
-    @include laptop
-
-    @include tablet
-
     @include mobile
+      margin-bottom: 68px
+      justify-self: start
 
   &__mail
     display: inline-block
     margin-bottom: 16px
-    @include laptop
-
-    @include tablet
-
-    @include mobile
 
   &__media
     display: flex
     align-items: center
     gap: 12px
-    @include laptop
-
-    @include tablet
-
-    @include mobile
-
 
