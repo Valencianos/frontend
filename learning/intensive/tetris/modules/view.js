@@ -58,6 +58,13 @@ export class View {
 
     scoreBlock.append(lines, score, level, record);
     this.container.append(scoreBlock);
+
+    return(lns, scr, lvl, rec) => {
+      lines.textContent = `lines: ${lns}`;
+      score.textContent = `score: ${scr}`;
+      level.textContent = `level: ${lvl}`;
+      record.textContent = `record: ${rec}`;
+    }
   }
 
   createBlockNextTetramino() {
@@ -78,6 +85,25 @@ export class View {
     tetraminoBlock.append(canvas);
 
     this.container.append(tetraminoBlock);
+
+    return (tetramino) => {
+      canvas.width = BLOCK * tetramino.length;
+      canvas.height = BLOCK * tetramino.length;
+      context.clearRect(0, 0, canvas.width, canvas.height);
+      for (let y = 0; y < tetramino.length; y++) {
+        const line = tetramino[y];
+    
+        for (let x = 0; x < line.length; x++) {
+          const block = line[x];
+          if (block !== 'o') {
+            context.fillStyle = this.colors[block];
+            context.strokeStyle = 'white';
+            context.fillRect(x * BLOCK, y * BLOCK, BLOCK, BLOCK);
+            context.strokeRect(x * BLOCK, y * BLOCK, BLOCK, BLOCK);
+          }
+        }
+      }
+    }
   }
 
   showArea(area) {
