@@ -12,3 +12,17 @@ const changeActiveBtn = (event) => {
 buttons.forEach((btn) => {
   btn.addEventListener('click', changeActiveBtn)
 })
+
+const API_URL = 'https://absorbing-rumbling-bike.glitch.me'
+// /api/products/category
+
+const productList = document.querySelector('.shop__item');
+const fetchProductByCategory = (category) => {
+  try {
+    const response = fetch(`${API_URL}/api/products/category/${category}`)
+  } catch (error) {
+    console.error(`response error: ${error}`);
+  }
+}
+
+fetchProductByCategory('Домики');
