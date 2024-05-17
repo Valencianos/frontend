@@ -118,10 +118,27 @@
   <div class="modal-overlay">
     <div class="modal">
       <div class="modal__content">
-        <h2>Корзина</h2>
+        <h2 class="modal__title">Корзина</h2>
         <ul class="modal__cart-items">
-          
+          <li class="modal__cart-item">
+            <img src="./img/dog_cart.jpg" alt="dog" class="modal__cart-item_img">
+            <h3 class="modal__cart-item_title">Название</h3>
+            <div class="modal__cart-item_count">
+              <button class="modal__minus">-</button>
+              <span class="modal_count">1</span>
+              <button class="modal__plus">+</button>
+            </div>
+            <p class="modal__cart-item_price">5000&nbsp;р.</p>
+          </li>
         </ul>
+        <form action="" class="modal__cart-form">
+          <fieldset class="modal__cart-fieldset">
+            <legend class="modal__cart-legend">Самовывоз из магазина:</legend>
+            <label class="modal__radio radio"><input type="radio" class="radio__input"></label>
+            <label class="modal__radio radio"><input type="radio" class="radio__input"></label>
+            <label class="modal__radio radio"><input type="radio" class="radio__input"></label>
+          </fieldset>
+        </form>
       </div>
     </div>
     <button class="modal-overlay_close">&times;</button>
