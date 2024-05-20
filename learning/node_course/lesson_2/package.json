@@ -1,0 +1,9 @@
+{
+  "name": "mpackage",
+  "version": "1.0.0",
+  "author": "Stanis Malinovskii",
+  "main": "les2.js",
+  "dependencies": {
+    "short-unique-id": "^5.2.0"
+  }
+}

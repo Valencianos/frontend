@@ -1,16 +1,26 @@
-const userUpdate = {};
+const ShortUniqueId = require('short-unique-id')
 
-function foo (obj) {
-  const randomId = function(length = 10) {
-    return Math.random().toString(36).substring(2, length+2);
-  };
+const capitalize = (str) => str[0].toUpperCase() + str.slice(1).toLowerCase();
+
+const { randomUUID } = new ShortUniqueId({ length: 10 });
+
+const getAge = (str) => {
+  const birthYear = str.split('.')[2];
+  const currentYear = new Date().getFullYear();
+  const result = currentYear - birthYear;
+  return result;
 }
 
-const user = {
-  name: 'иван иванов',
-  dateBirth: '10.11.1987',
-  purpose: 'карьерный рост',
+const newUser = (user) => {
+  const result = {
+    id: randomUUID(),
+    firstName: capitalize(user.name.split(' ')[0]),
+    lastName: capitalize(user.name.split(' ')[1]),
+    dateBirth: user.dateBirth,
+    age: getAge(user.dateBirth),
+    purpose: capitalize(user.purpose),
+  }
+  return result;
 }
 
-const result = foo(user);
-console.log(result);
+module.exports = { newUser }
