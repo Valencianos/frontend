@@ -124,9 +124,9 @@
             <img src="./img/dog_cart.jpg" alt="dog" class="modal__cart-item_img">
             <h3 class="modal__cart-item_title">Название</h3>
             <div class="modal__cart-item_count">
-              <button class="modal__minus">-</button>
-              <span class="modal_count">1</span>
-              <button class="modal__plus">+</button>
+              <button class="modal__btn modal__minus">-</button>
+              <span class="modal__count">1</span>
+              <button class="modal__btn modal__plus">+</button>
             </div>
             <p class="modal__cart-item_price">5000&nbsp;р.</p>
           </li>
@@ -134,10 +134,21 @@
         <form action="" class="modal__cart-form">
           <fieldset class="modal__cart-fieldset">
             <legend class="modal__cart-legend">Самовывоз из магазина:</legend>
-            <label class="modal__radio radio"><input type="radio" class="radio__input"></label>
-            <label class="modal__radio radio"><input type="radio" class="radio__input"></label>
-            <label class="modal__radio radio"><input type="radio" class="radio__input"></label>
+            <label class="modal__radio radio">ул. Адамавая 45/1
+              <input type="radio" class="radio__input" name="shop" value="1" checked>
+            </label>
+            <label class="modal__radio radio">ул. Вишневая 74
+              <input type="radio" class="radio__input" name="shop" value="2">
+            </label>
+            <label class="modal__radio radio">ул. Чехова 106/28
+              <input type="radio" class="radio__input" name="shop" value="3">
+            </label>
           </fieldset>
+
+          <div class="modal__cart-total">
+            <button class="modal__cart_btn">Заказать</button>
+            <p class="modal__cart_price">12 900 ₽</p>
+          </div>
         </form>
       </div>
     </div>

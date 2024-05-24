@@ -8,7 +8,7 @@ const cartItemsList = document.querySelector('.modal__cart-items');
 const cartQty = cartButton.querySelector('.shop__cart-btn_qty');
 
 
-const createProductCard = ({photoUrl, name, price}) => {
+const createProductCard = ({id, photoUrl, name, price}) => {
   const productCard = document.createElement('li');
   productCard.classList.add('shop__item');
   productCard.innerHTML = (`
@@ -16,7 +16,7 @@ const createProductCard = ({photoUrl, name, price}) => {
       <img src="${API_URL}${photoUrl}" alt="${name}" class="product__img">
       <h3 class="product__title">${name}</h3>
       <p class="product__price">${price}&nbsp;₽</p>
-      <button class="product_btn">Заказать</button>
+      <button class="product_btn" data-id="${id}">Заказать</button>
     </article>
   `)
   return productCard;
@@ -44,6 +44,20 @@ const fetchProductByCategory = async (category) => {
   }
 }
 
+const fetchCartItems = async (ids) => {
+  try {
+    const response = await fetch(`${API_URL}/api/products/list/${ids.join(',')}`);
+    if (!response.ok) {
+      throw new Error (response.status)
+    } else {
+      return await response.json()
+    }
+  } catch (error) {
+    console.error(`Error response products from cart ${error}`);
+    return [];
+  }
+}
+
 const changeCategory = ({target}) => {
   const category = target.textContent;
   buttons.forEach((btn) => {
@@ -61,14 +75,21 @@ buttons.forEach((btn) => {
   }
 })
 
-const renderCartItems = () => {
+const renderCartItems = async () => {
   cartItemsList.textContent = '';
   const cartItems = JSON.parse(localStorage.getItem('cartItems') || '[]');
-  cartItems.forEach(element => {
+  const ids = cartItems.map(item => item.id)
+
+  if (!ids.length) {
     const listItem = document.createElement('li');
-    listItem.textContent = element;
+    listItem.textContent = 'Корзина пуста';
     cartItemsList.append(listItem);
-  })
+    return;
+  }
+
+  const product = await fetchCartItems(ids);
+  localStorage.setItem('cartProductDetails', JSON.stringify(products));
+
 }
 
 cartButton.addEventListener('click', () => {
@@ -89,17 +110,23 @@ const updateCartCount = () => {
 
 updateCartCount();
 
-const addToCart = (productName) => {
+const addToCart = (productId) => {
   const cartItems = JSON.parse(localStorage.getItem('cartItems') || '[]');
-  cartItems.push(productName);
+  const existItems = cartItems.find((item) => item.id === productId);
+
+  if (existItems) {
+    existItems.count += 1;
+  } else {
+    cartItems.push({id: productId, count: 1});
+  }
+
   localStorage.setItem('cartItems', JSON.stringify(cartItems));
   updateCartCount();
 }
 
 productList.addEventListener('click', ({target}) => {
   if (target.closest('.product_btn')) {
-    const productCard = target.closest('.shop__product');
-    const productName = productCard.querySelector('.product__title').textContent;
-    addToCart(productName);
+    const productId = parseInt(target.dataset.id);
+    addToCart(productId);
   }
 })
